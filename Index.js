@@ -5,6 +5,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { assertEnumDefaultedMember } = require('@babel/types');
 
 // const mockManagerData {
 
@@ -33,7 +34,7 @@ const managerQuestions = [
             if (idInput) {
                 return true;
             } else {
-                console.log('Please enter the ID of the team manager');
+                console.log('Please enter the ID of the team manager.');
                 return false;
             }
         }
@@ -46,7 +47,7 @@ const managerQuestions = [
             if (emailInput) {
                 return true;
             } else {
-                console.log('Please enter the email of the team manager');
+                console.log('Please enter the email of the team manager.');
                 return false;
             }
         }
@@ -79,21 +80,99 @@ const managerQuestions = [
     // },
 ];
 
-// const addEmployee = [
-//     {
-//         type: 'list',
-//         name: '',
-//         message: '',
-//         validate:  => {
-//             if () {
-//                 return true;
-//             } else {
-//                 console.log('');
-//                 return false;
-//             }
-//         }
-//     },
-// ];
+// ask what next step would be after adding Manager information
+const addEmployee = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'nextStep',
+            message: 'Which of the following steps would you like to do next?',
+            choices: [
+                "Add an engineer.",
+                "Add an intern.",
+                "Finish building my team."
+            ]
+
+        }
+    ])
+    .then(data => {
+        // go to next step depending on what the user input is
+        switch (data.nextStep) {
+            case 'Add an engineer.':
+                addEngineer();
+                break;
+            case 'Add an intern.':
+                addIntern();
+                break;
+            case 'Finish building my team.':
+                generatePage();
+                break;
+        }
+    });  
+};
+
+const addEngineer = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the engineer?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of the engineer.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the ID of the engineer?',
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the ID of the engineer.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email of the engineer?',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the email of the engineer.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'username',
+            message: "What is the GitHub username of the engineer?",
+            validate: usernameInput => {
+                if (usernameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the GitHub username of the engineer.');
+                    return false;
+                }
+            }
+        }
+    ])
+    .then(data => {
+        const teamMember = new Engineer(data);
+        console.log(data);
+        console.log(teamMember.role);
+        addEmployee();
+    })
+};
 
 // function to initialize app
 function init() {
@@ -107,6 +186,7 @@ init()
     .then(data => {
         console.log(data);
     })
+    .then(addEmployee)
     .catch(err => {
         console.log(err);
     });
