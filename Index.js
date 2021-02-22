@@ -77,7 +77,23 @@ const managerQuestions = [
     //         }
     //     }
     // },
-]
+];
+
+// const addEmployee = [
+//     {
+//         type: 'list',
+//         name: '',
+//         message: '',
+//         validate:  => {
+//             if () {
+//                 return true;
+//             } else {
+//                 console.log('');
+//                 return false;
+//             }
+//         }
+//     },
+// ];
 
 // function to initialize app
 function init() {

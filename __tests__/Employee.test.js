@@ -5,7 +5,8 @@ test('creates a Employee object', () => {
     const data = {
         name: "Joshua",
         id: 1,
-        email: "jmrendon48@gmail.com"
+        email: "jmrendon48@gmail.com",
+        officeNumber: 1
     };
     const employee = new Employee(data);
 
@@ -19,7 +20,8 @@ test('gets Employee name', () => {
     const data = {
         name: "Joshua",
         id: 1,
-        email: "jmrendon48@gmail.com"
+        email: "jmrendon48@gmail.com",
+        officeNumber: 1
     };
     const employee = new Employee(data);
 
@@ -30,7 +32,8 @@ test('gets Employee ID', () => {
     const data = {
         name: "Joshua",
         id: 1,
-        email: "jmrendon48@gmail.com"
+        email: "jmrendon48@gmail.com",
+        officeNumber: 1
     };
     const employee = new Employee(data);
 
@@ -41,7 +44,8 @@ test('gets Employee email', () => {
     const data = {
         name: "Joshua",
         id: 1,
-        email: "jmrendon48@gmail.com"
+        email: "jmrendon48@gmail.com",
+        officeNumber: 1
     };
     const employee = new Employee(data);
 
@@ -52,7 +56,8 @@ test('gets Employee role', () => {
     const data = {
         name: "Joshua",
         id: 1,
-        email: "jmrendon48@gmail.com"
+        email: "jmrendon48@gmail.com",
+        officeNumber: 1
     };
     const employee = new Employee(data);
 
