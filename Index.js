@@ -5,11 +5,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const { assertEnumDefaultedMember } = require('@babel/types');
-
-// const mockManagerData {
-
-// }
+const employeeList = [];
 
 // initial questions when first initializing application
 const managerQuestions = [
@@ -170,6 +166,8 @@ const addEngineer = () => {
         const teamMember = new Engineer(data);
         console.log(data);
         console.log(teamMember.role);
+        employeeList.push(teamMember);
+        console.log(employeeList);
         addEmployee();
     })
 };
@@ -233,6 +231,8 @@ const addIntern = () => {
         const teamMember = new Intern(data);
         console.log(data);
         console.log(teamMember.role);
+        employeeList.push(teamMember);
+        console.log(employeeList);
         addEmployee();
     })
 };
@@ -247,7 +247,10 @@ init()
         return new Manager(data);
     })
     .then(data => {
+        const managerEntry = data;
         console.log(data);
+        employeeList.push(managerEntry);
+        console.log(employeeList);
     })
     .then(addEmployee)
     .catch(err => {

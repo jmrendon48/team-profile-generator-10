@@ -2,13 +2,25 @@ const { test, expect } = require('@jest/globals');
 const Intern = require('../lib/Intern');
 
 test('gets Intern school', () => {
-    const intern = new Intern('Joshua', 1, "jmrendon48@gmail.com", "UCLA Extension");
+    const data = {
+        name: "Joshua",
+        id: 1,
+        email: "jmrendon48@gmail.com",
+        school: 'UCLA Extension'
+    };
+    const intern = new Intern(data);
 
     expect(intern.school).toBe('UCLA Extension');
 });
 
 test('gets Intern role', () => {
-    const intern = new Intern('Joshua', 1, "jmrendon48@gmail.com", "UCLA Extension");
+    const data = {
+        name: "Joshua",
+        id: 1,
+        email: "jmrendon48@gmail.com",
+        school: 'UCLA Extension'
+    };
+    const intern = new Intern(data);
 
     expect(intern.role).toBe('Intern');
 });
