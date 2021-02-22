@@ -5,6 +5,8 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generatePage = require('./src/page-template');
+const writeFile = require('./utils/generate-site.js');
 const employeeList = [];
 
 // initial questions when first initializing application
@@ -88,10 +90,11 @@ const addEmployee = () => {
                 addIntern();
                 break;
             case 'Finish building my team.':
-                generatePage();
+                const pageHtml = generatePage(employeeList);
+                writeFile(pageHtml);
                 break;
         }
-    });  
+    }) 
 };
 
 const addEngineer = () => {
