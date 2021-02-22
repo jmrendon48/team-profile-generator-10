@@ -28,14 +28,12 @@ const managerQuestions = [
         type: 'input',
         name: 'id',
         message: 'What is the ID of the team manager?',
-        validate: idInput => {
-            if (idInput) {
-                return true;
-            } else {
-                console.log('Please enter the ID of the team manager.');
-                return false;
+        validate: (idInput) => {
+            if (isNaN(idInput)) {
+                return "Please enter a valid ID.";
             }
-        }
+            return true;
+        },
     },
     {
         type: 'input',
@@ -54,14 +52,12 @@ const managerQuestions = [
         type: 'input',
         name: 'officeNumber',
         message: 'What is the office number of the team manager?',
-        validate: officeNumberInput => {
-            if (officeNumberInput) {
-                return true;
-            } else {
-                console.log('Please enter the office number of the team manager.');
-                return false;
+        validate: (officeNumberInput) => {
+            if (isNaN(officeNumberInput)) {
+                return "Please enter a valid office number.";
             }
-        }
+            return true;
+        },
     }
 ];
 
@@ -116,14 +112,12 @@ const addEngineer = () => {
             type: 'input',
             name: 'id',
             message: 'What is the ID of the engineer?',
-            validate: idInput => {
-                if (idInput) {
-                    return true;
-                } else {
-                    console.log('Please enter the ID of the engineer.');
-                    return false;
+            validate: (idInput) => {
+                if (isNaN(idInput)) {
+                    return "Please enter a valid ID.";
                 }
-            }
+                return true;
+            },
         },
         {
             type: 'input',
@@ -181,14 +175,12 @@ const addIntern = () => {
             type: 'input',
             name: 'id',
             message: 'What is the ID of the intern?',
-            validate: idInput => {
-                if (idInput) {
-                    return true;
-                } else {
-                    console.log('Please enter the ID of the intern.');
-                    return false;
+            validate: (idInput) => {
+                if (isNaN(idInput)) {
+                    return "Please enter a valid ID.";
                 }
-            }
+                return true;
+            },
         },
         {
             type: 'input',
