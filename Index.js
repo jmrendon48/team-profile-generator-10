@@ -60,20 +60,7 @@ const managerQuestions = [
                 return false;
             }
         }
-    },
-    // {
-    //     type: 'input',
-    //     name: '',
-    //     message: '',
-    //     validate:  => {
-    //         if () {
-    //             return true;
-    //         } else {
-    //             console.log('');
-    //             return false;
-    //         }
-    //     }
-    // },
+    }
 ];
 
 // ask what next step would be after adding Manager information
