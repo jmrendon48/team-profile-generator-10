@@ -174,6 +174,69 @@ const addEngineer = () => {
     })
 };
 
+const addIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the intern?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of the intern.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the ID of the intern?',
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the ID of the intern.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email of the intern?',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the email of the intern.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "What is the school of the intern?",
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the school of the intern.');
+                    return false;
+                }
+            }
+        }
+    ])
+    .then(data => {
+        const teamMember = new Intern(data);
+        console.log(data);
+        console.log(teamMember.role);
+        addEmployee();
+    })
+};
+
 // function to initialize app
 function init() {
     return inquirer.prompt(managerQuestions);
